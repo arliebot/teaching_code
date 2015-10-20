@@ -1,0 +1,22 @@
+# Z Test
+
+# Since we found that R doesn't have a built-in function for Z, let's write one!
+
+z.test <- function(dat, mu, sigma) {
+    numerator <- mean(dat) - mu
+    denominator <- sigma / sqrt(length(x))
+    z <- numerator / denominator
+    return(z)
+}
+
+# Test it with some data:
+x <- rnorm(200)
+mu <- .25
+sigma <- 1
+
+z.test(x, mu, sigma)
+
+# Some issues:
+    # would crash if X has any missing data
+    # doesn't return p-value
+    # doesn't return confidence interval
